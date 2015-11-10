@@ -1,13 +1,14 @@
 Template.addTodo.events({
   'submit form': function(event){
     event.preventDefault();
-    var todoName = event.target.todoName.value;
+    var todoNameInput = event.target.todoName;
     Todos.insert({
-      name: todoName,
+      name: todoNameInput.value,
       completed: false,
-      createdAt: new Date()
+      createdAt: new Date(),
+      listId: this._id
     });
 
-    event.target.todoName.value = '';
+    todoNameInput.value = '';
   }
 });

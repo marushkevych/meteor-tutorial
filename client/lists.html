@@ -1,0 +1,10 @@
+<template name="lists">
+  <h2>Lists</h2>
+  {{> addList}}
+  <ul>
+    {{#each list}}
+      <!-- Magic! Iron router will automatically find this._id and use it to build URL /listPage/:_id -->
+      <li><a href="{{pathFor route='listPage'}}">{{name}}</a></li>
+    {{/each}}
+  </ul>
+</template>
